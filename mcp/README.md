@@ -1,6 +1,6 @@
 # Satoshi Monument — MCP server
 
-MCP (Model Context Protocol) server, který AI asistentům (Claude Desktop, Claude Code, …)
+MCP (Model Context Protocol) server, který AI asistentům
 zpřístupní aktuální stav sbírky **Satoshi Monument** a návod, jak přispět.
 Čte pouze veřejné API `${SITE_URL}/api/stats` — neobsahuje žádná tajemství.
 
@@ -22,7 +22,7 @@ SITE_URL=https://satoshi.jednadvacet.org node server.mjs
 (`SITE_URL` je volitelné, default `https://satoshi.jednadvacet.org`.)
 
 ## Konfigurace v MCP klientovi
-**Claude Desktop** (`claude_desktop_config.json`) / **Claude Code** (`.mcp.json`):
+Do konfiguračního souboru svého MCP klienta přidej:
 ```json
 {
   "mcpServers": {
