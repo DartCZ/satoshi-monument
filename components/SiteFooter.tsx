@@ -18,8 +18,8 @@ export default function SiteFooter() {
     const next = !confetti;
     setConfetti(next);
     localStorage.setItem(CONFETTI_KEY, next ? "on" : "off");
-    // Při zapnutí hned ukázková dávka, ať je vidět, že fungují.
-    if (next) fireConfetti();
+    // Při zapnutí hned ukázková dávka, ať je vidět, že fungují (i přes reduced-motion).
+    if (next) fireConfetti({ force: true });
   };
 
   return (
