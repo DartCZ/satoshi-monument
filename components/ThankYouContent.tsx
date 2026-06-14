@@ -61,6 +61,21 @@ export default function ThankYouContent() {
             />
           </div>
 
+          <div className="mt-8">
+            <h2 className="ui-display text-xl font-bold mb-2">
+              {t("repeatTitle")}
+            </h2>
+            <p className="ui-muted leading-relaxed mb-4 max-w-md mx-auto">
+              {t("repeatLead")}
+            </p>
+            <a
+              href={`/${locale}#donate`}
+              className="ui-btn press inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold"
+            >
+              <span aria-hidden>🏆</span> {t("repeatCta")}
+            </a>
+          </div>
+
           <a
             href={`/${locale}`}
             className="ui-link ui-eyebrow inline-flex items-center gap-1.5 mt-10"

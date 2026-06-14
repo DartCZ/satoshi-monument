@@ -102,7 +102,8 @@
     "noMatch": "Nikoho takového jsme nenašli.",
     "showAll": "Zobrazit všechny příspěvky",
     "allContributions": "Všechny příspěvky",
-    "contribution": "příspěvek"
+    "contribution": "příspěvek",
+    "repeatHint": "Přispívat můžeš i opakovaně — platby na stejný identifikátor se sčítají a posouvají tě výš na stupně vítězů."
   },
   "about": {
     "title": "O projektu",
@@ -206,7 +207,10 @@
     "copied": "Odkaz zkopírován",
     "back": "Zpět na hlavní stránku",
     "amountThanks": "Děkujeme za tvůj příspěvek {amount}! 🙌",
-    "downloadImage": "Stáhnout obrázek se stavem"
+    "downloadImage": "Stáhnout obrázek se stavem",
+    "repeatTitle": "Chceš na stupně vítězů?",
+    "repeatLead": "Příspěvky na stejný identifikátor se sčítají. Přidej další a posuň se na leaderboardu výš.",
+    "repeatCta": "Přispět znovu"
   },
   "share": {
     "title": "Sdílej sbírku",

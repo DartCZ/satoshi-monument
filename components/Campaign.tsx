@@ -30,6 +30,10 @@ export default function Campaign() {
             {t("wall.title")}
           </h2>
           <p className="ui-muted mt-2">{t("wall.subtitle")}</p>
+          <p className="ui-accent-box inline-flex items-center gap-2 px-4 py-2.5 mt-5 text-sm font-medium rounded-[var(--radius-sm)] text-left">
+            <span className="ui-accent text-base leading-none">🏆</span>
+            {t("wall.repeatHint")}
+          </p>
         </Reveal>
 
         {/* Princip sčítání — schované pod rozbalovátkem, ať to nepřebíjí zeď */}
