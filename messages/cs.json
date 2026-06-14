@@ -119,8 +119,8 @@
     "admin": "Správa",
     "org": "Projekt komunity Jednadvacet.org pod záštitou spolku The Malahar Network z.s.",
     "photoCredit": "Foto sochy v Luganu: satoshigallery.com · Wikimedia Commons (CC BY-SA)",
-    "confettiHide": "Vypnout konfety 🎉",
-    "confettiShow": "Zapnout konfety 🎉"
+    "confettiOn": "Konfety zapnuté 🎉",
+    "confettiOff": "Konfety vypnuté"
   },
   "princip": {
     "title": "Jak se počítají příspěvky",

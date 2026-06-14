@@ -119,8 +119,8 @@
     "admin": "Admin",
     "org": "A project of the Jednadvacet.org community under the auspices of The Malahar Network z.s.",
     "photoCredit": "Lugano statue photos: satoshigallery.com · Wikimedia Commons (CC BY-SA)",
-    "confettiHide": "Hide confetti 🎉",
-    "confettiShow": "Show confetti 🎉"
+    "confettiOn": "Confetti on 🎉",
+    "confettiOff": "Confetti off"
   },
   "princip": {
     "title": "How contributions are counted",

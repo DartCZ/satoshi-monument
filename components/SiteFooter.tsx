@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 import { useLocaleSwitch } from "./I18nProvider";
-import { CONFETTI_KEY } from "@/lib/confetti";
+import { CONFETTI_KEY, fireConfetti } from "@/lib/confetti";
 
 export default function SiteFooter() {
   const t = useTranslations();
@@ -18,6 +18,8 @@ export default function SiteFooter() {
     const next = !confetti;
     setConfetti(next);
     localStorage.setItem(CONFETTI_KEY, next ? "on" : "off");
+    // Při zapnutí hned ukázková dávka, ať je vidět, že fungují.
+    if (next) fireConfetti();
   };
 
   return (
@@ -49,10 +51,23 @@ export default function SiteFooter() {
 
         <button
           onClick={toggleConfetti}
-          className="ui-link ui-eyebrow"
-          aria-pressed={confetti}
+          className="ui-eyebrow inline-flex items-center gap-2 mx-auto hover:opacity-80 transition"
+          role="switch"
+          aria-checked={confetti}
         >
-          {confetti ? t("footer.confettiHide") : t("footer.confettiShow")}
+          <span
+            aria-hidden
+            className={`relative w-9 h-5 rounded-full transition-colors ${
+              confetti ? "bg-[var(--accent)]" : "ui-border bg-transparent"
+            }`}
+          >
+            <span
+              className={`absolute top-0.5 left-0.5 w-4 h-4 rounded-full transition-transform ${
+                confetti ? "translate-x-4 bg-black" : "bg-[var(--muted)]"
+              }`}
+            />
+          </span>
+          {confetti ? t("footer.confettiOn") : t("footer.confettiOff")}
         </button>
       </div>
     </footer>
