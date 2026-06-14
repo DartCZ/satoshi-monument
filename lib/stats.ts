@@ -170,3 +170,39 @@ export async function getWall(limit = 200): Promise<WallEntry[]> {
   entries.sort((a, b) => b.amountBtc - a.amountBtc);
   return entries.slice(0, limit);
 }
+
+export interface RecentDonation {
+  id: string; // solené veřejné id (neprozrazuje donorKey/e-mail)
+  name: string;
+  currency: string; // "BTC" | "CZK"
+  amount: number; // částka v původní měně
+  amountBtc: number;
+  createdAt: string; // čas potvrzení (ISO)
+}
+
+/** Poslední potvrzené příspěvky (jednotlivé platby) pro „recent" feed. */
+export async function getRecent(limit = 10): Promise<RecentDonation[]> {
+  const rows = await prisma.donation.findMany({
+    where: { status: "confirmed", hiddenOnWall: false },
+    orderBy: { confirmedAt: "desc" },
+    take: limit,
+    select: {
+      id: true,
+      name: true,
+      currency: true,
+      amount: true,
+      amountBtc: true,
+      confirmedAt: true,
+      createdAt: true,
+    },
+  });
+
+  return rows.map((r) => ({
+    id: publicGroupId(r.id),
+    name: r.name,
+    currency: r.currency,
+    amount: r.amount,
+    amountBtc: r.amountBtc ?? 0,
+    createdAt: (r.confirmedAt ?? r.createdAt).toISOString(),
+  }));
+}

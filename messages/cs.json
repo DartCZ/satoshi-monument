@@ -214,5 +214,9 @@
     "download": "Obrázek se stavem",
     "copy": "Kopírovat odkaz",
     "copied": "Zkopírováno"
+  },
+  "recent": {
+    "title": "Poslední příspěvky",
+    "empty": "Zatím žádné příspěvky"
   }
 }

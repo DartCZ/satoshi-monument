@@ -214,5 +214,9 @@
     "download": "Status image",
     "copy": "Copy link",
     "copied": "Copied"
+  },
+  "recent": {
+    "title": "Recent contributions",
+    "empty": "No contributions yet"
   }
 }

@@ -10,14 +10,20 @@ import {
 } from "react";
 import type { Stats } from "./ProgressBar";
 import type { WallEntry } from "./SupporterWall";
+import type { RecentDonation } from "@/lib/stats";
 import { fireConfetti } from "@/lib/confetti";
 
 interface StatsValue {
   stats: Stats | null;
   wall: WallEntry[];
+  recent: RecentDonation[];
 }
 
-const StatsContext = createContext<StatsValue>({ stats: null, wall: [] });
+const StatsContext = createContext<StatsValue>({
+  stats: null,
+  wall: [],
+  recent: [],
+});
 
 /** Jeden zdroj dat sbírky pro celou stránku — místo 3 nezávislých fetchů. */
 export default function StatsProvider({
@@ -27,6 +33,7 @@ export default function StatsProvider({
 }) {
   const [stats, setStats] = useState<Stats | null>(null);
   const [wall, setWall] = useState<WallEntry[]>([]);
+  const [recent, setRecent] = useState<RecentDonation[]>([]);
   // Předchozí vybraná částka — nárůst = právě přišla nová platba → konfety.
   const prevRaised = useRef<number | null>(null);
 
@@ -34,7 +41,11 @@ export default function StatsProvider({
     try {
       const res = await fetch("/api/stats", { cache: "no-store" });
       if (!res.ok) return;
-      const data = (await res.json()) as { stats: Stats; wall: WallEntry[] };
+      const data = (await res.json()) as {
+        stats: Stats;
+        wall: WallEntry[];
+        recent: RecentDonation[];
+      };
       const raised = data.stats?.raisedBtc ?? 0;
       // Při prvním načtení jen zapamatovat; potom oslavit každý nárůst.
       if (prevRaised.current !== null && raised > prevRaised.current + 1e-9) {
@@ -43,6 +54,7 @@ export default function StatsProvider({
       prevRaised.current = raised;
       setStats(data.stats);
       setWall(data.wall ?? []);
+      setRecent(data.recent ?? []);
     } catch {}
   }, []);
 
@@ -67,7 +79,7 @@ export default function StatsProvider({
   }, [refresh]);
 
   return (
-    <StatsContext.Provider value={{ stats, wall }}>
+    <StatsContext.Provider value={{ stats, wall, recent }}>
       {children}
     </StatsContext.Provider>
   );

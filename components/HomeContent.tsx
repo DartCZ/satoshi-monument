@@ -9,6 +9,7 @@ import Campaign from "@/components/Campaign";
 import DonationWidget from "@/components/DonationWidget";
 import InstallationsCarousel from "@/components/InstallationsCarousel";
 import HeroStats from "@/components/HeroStats";
+import RecentDonations from "@/components/RecentDonations";
 import Reveal from "@/components/Reveal";
 import ShareCampaign from "@/components/ShareCampaign";
 
@@ -79,6 +80,7 @@ export default function HomeContent() {
               style={{ animationDelay: "180ms" }}
             >
               <HeroStats />
+              <RecentDonations />
             </div>
           </div>
 
