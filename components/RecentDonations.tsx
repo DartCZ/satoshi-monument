@@ -45,7 +45,7 @@ export default function RecentDonations() {
           return (
             <li
               key={d.id}
-              className="animate-fade-up flex items-center gap-3"
+              className="animate-rise flex items-center gap-3"
               style={{ opacity }}
             >
               <div className="w-8 h-8 shrink-0 overflow-hidden rounded-[var(--radius-sm)] ui-border">
